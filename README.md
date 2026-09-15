@@ -1,6 +1,6 @@
 # Vonage API WebRTC Client call to Vonage Contact Center (VCC) 
 
-This repository includes a sample WebRTC Client code in JavaScript using Vonage Client SDK, as well as the corresponding sample server code allowing the WebRTC client to make a call to VCC.
+This repository includes a sample WebRTC Client code in JavaScript using Vonage Client SDK, as well as the corresponding sample server code allowing the WebRTC client to make calls to VCC.
 
 Using a WebRTC client is also known as in-app voice.
 
@@ -13,20 +13,20 @@ The sample code here allows a WebRTC client to make calls to VCC, to receive cal
 If you plan to test using `Local deployment with ngrok` (Internet tunneling service), here are the instructions to set up ngrok:<br>
 - [Install ngrok](https://ngrok.com/download),<br>
 - Make sure you are using the latest version of ngrok and not using a previously installed version of ngrok,
-- Sign up for a free [ngrok account](https://dashboard.ngrok.com/signup),<br>
+- Sign up for a [ngrok account](https://dashboard.ngrok.com/signup),<br>
 - Verify your email address from the email sent by ngrok,<br>
 - Retrieve [your Authoken](https://dashboard.ngrok.com/get-started/your-authtoken),<br>
 - Run the command `ngrok config add-authtoken <your-authtoken>`<br>
 - Set up the tunnel
 	- Run `ngrok config edit`
-		- For a free ngrok account, add following lines to the ngrok configuration file (under authoken line):</br>
+		- For a free ngrok account, add the following lines to the ngrok configuration file (under authoken line):</br>
 		<pre><code>	
 		tunnels:
 			mytunnel:</br>
 				proto: http</br>
 				addr: 8000</br>
 		</code></pre>
-		- For a [paid ngrok account](https://dashboard.ngrok.com/billing/subscription), you may set a ngrok hostname that never changes on each ngrok new launch, add following lines to the ngrok configuration file (under authoken line) - set hostname to actual desired values:</br>
+		- For a [paid ngrok account](https://dashboard.ngrok.com/billing/subscription), you may set a ngrok hostname that never changes on each ngrok new launch, add the following lines to the ngrok configuration file (under authoken line) - set the hostname to the actual desired value:</br>
 		<pre><code>	
 		tunnels:
 			mytunnel:</br>
@@ -40,8 +40,8 @@ If you plan to test using `Local deployment with ngrok` (Internet tunneling serv
 	- You will see lines like
 		....</br>
 		*Web Interface                 http://127.0.0.1:4040</br>                             
-		Forwarding                    https://xxxxxx.ngrok.io -> http://localhost:8000*</br> 
-	- Make note of *https://xxxxxx.ngrok.io* (with the leading https://), as it will be needed in the next steps below.</br>	
+		Forwarding                    https://xxxxxx.ngrok.xx -> http://localhost:8000*</br> 
+	- Make note of *https://xxxxxx.ngrok.xx* (with the leading https://), as it will be needed in the next steps below.</br>	
 
 Reminder: The Node.js server application (this repository) is running on local port 8000.</br>
 
@@ -92,8 +92,8 @@ For the next steps, you will need:</br>
 
 ### Set up the server application
 
-Copy or rename env-example to .env<br>
-Update parameters in .env file<br>
+Copy or rename .env-example to .env<br>
+Update parameters in .env file as needed for your deployment<br>
 Have Node.js installed on your system, this application has been tested with Node.js version 22.16<br>
 Install node modules with the command "npm install"<br>
 Start the server application with the command "node voice-api-to-vcc"<br>
