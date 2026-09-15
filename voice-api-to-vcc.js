@@ -111,7 +111,7 @@ app.get('/answer', (req, res) => {
             "action": "talk",
             "text": "Connecting your call, please wait.",
             "language": "en-US",
-            "style": 0
+            "style": 11
           },
           {
             "action": "conversation",
@@ -128,7 +128,7 @@ app.get('/answer', (req, res) => {
             "action": "talk",
             "text": "Connecting your call, please wait",
             "language": "en-US",
-            "style": 0
+            "style": 11
           },        
           {
             "action": "connect",
@@ -157,7 +157,7 @@ app.get('/answer', (req, res) => {
             "action": "talk",
             "text": "Connecting your call, please wait.",
             "language": "en-US",
-            "style": 0
+            "style": 11
           },
           {
             "action": "conversation",
@@ -174,7 +174,7 @@ app.get('/answer', (req, res) => {
             "action": "talk",
             "text": "Connecting your call, please wait",
             "language": "en-US",
-            "style": 0
+            "style": 11
           },
           { 
             "action": "connect", 
@@ -194,22 +194,35 @@ app.get('/answer', (req, res) => {
         
     }  
 
-  } else {  // this incoming call from a non client SDK (WebRTC client) will get bridged with the call to VCC number
+  } else {
 
+    // select either of the two following call processing
+
+    // this incoming call from a non client SDK (WebRTC client), i.e. from PSTN ot from SIP will get rejected with a voice announcement
     nccoResponse = [
-      {  // this "talk" action may be skipped and just let VCC say initial voice prompts
+      { 
         "action": "talk",
-        "text": "Connecting your call, please wait.",
+        "text": "This number does not accept incoming calls. Good bye!",
         "language": "en-US",
-        "style": 0
-      },
-      {
-        "action": "conversation",
-        "name": `conf_${req.query.uuid}`, // create a unique named conference
-        "startOnEnter": true,
-        "endOnExit": true
+        "style": 11
       }
     ];
+
+    // this incoming call from a non client SDK (WebRTC client), i.e. from PSTN ot from SIP will get bridged with the call to VCC number
+    // nccoResponse = [
+    //   {  // this "talk" action may be skipped and just let VCC say initial voice prompts
+    //     "action": "talk",
+    //     "text": "Connecting your call, please wait.",
+    //     "language": "en-US",
+    //     "style": 11
+    //   },
+    //   {
+    //     "action": "conversation",
+    //     "name": `conf_${req.query.uuid}`, // create a unique named conference
+    //     "startOnEnter": true,or
+    //     "endOnExit": true
+    //   }
+    // ];
 
   };  
 
