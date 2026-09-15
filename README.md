@@ -163,7 +163,6 @@ https://myserver.mycompany.com:40000/client.html</br>
 
 Then:</br>
 - Make calls to VCC by calling "support" (set as an example in this server application), or if a phone number has been linked to this server application by calling that number,
-- Receive PSTN calls,</br>
 - Make PSTN calls,</br>
 - Receive or place a call to/from another WebRTC client (opened from the same link - logged in as a different user).</br>
 
